@@ -1,0 +1,24 @@
+.nav__menu {
+  border: 1px solid goldenrod;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  .nav__checkboxes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    
+      input {
+        margin: 10px 30px;
+      }
+
+    
+    .nav__checkbox-option {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 50px;
+    }
+  }
+}
+
