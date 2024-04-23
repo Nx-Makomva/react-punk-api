@@ -20,16 +20,16 @@ const NavMenu = ({handleSearchInput, searchTerm, handleCheckbox}: NavMenuProps) 
           searchTerm={searchTerm}
           onInput={handleSearchInput}
         />
-        <div>
+      </div>
+      <div>
           <Link to={`/react-punk-api/`}>
-            <h2>Home</h2>
+            <h2 className="nav-menu__heading">Home</h2>
           </Link>
           
         </div>
-      </div>
       <div className="nav__checkboxes">
         <div className="nav__checkbox-option">
-          <label htmlFor="abv">High ABV ((more than sign) 6.0%)</label>
+          <label className="menu-item" htmlFor="abv">High ABV ({'>'} 6.0%)</label>
           <input 
             type="checkbox" 
             id="abv" 
@@ -50,7 +50,7 @@ const NavMenu = ({handleSearchInput, searchTerm, handleCheckbox}: NavMenuProps) 
         </div>
 
         <div className="nav__checkbox-option">
-          <label htmlFor="ph">Acidic (ph (less than sign) 4)</label>
+          <label htmlFor="ph">Acidic (ph {'<'} 4)</label>
           <input 
           type="checkbox" 
           id="ph" 

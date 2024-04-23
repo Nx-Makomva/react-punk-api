@@ -30,20 +30,3 @@
     margin-right: 30px;
   }
 }
-
-.menu {
-  display: flex;
-  align-items: center;
-}
-
-.menu-item {
-  margin-right: 20px;
-  font-size: 18px;
-  color: $color-dark;
-  text-decoration: none;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: $color-primary-dark;
-  }
-}
