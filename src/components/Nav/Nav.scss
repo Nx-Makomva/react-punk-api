@@ -1,0 +1,49 @@
+@use '../../assets/styles/variables.scss' as *;
+
+.nav {
+  background-color: $color-primary;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+  .menu-icon,
+  .black-cross {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .menu-icon {
+    margin-left: 10px;
+  }
+
+  .black-cross {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    margin-right: 30px;
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu-item {
+  margin-right: 20px;
+  font-size: 18px;
+  color: $color-dark;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+}
