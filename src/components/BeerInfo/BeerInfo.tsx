@@ -2,12 +2,18 @@ import { Beer } from "../../data/beer-types";
 import "./BeerInfo.scss";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 type BeerInfoProps = {
   beers: Beer[];
 };
 
 const BeerInfo = ({beers}: BeerInfoProps) => {
+  const [showIngredients, setShowIngredients] = useState<boolean>(false);
+
+  const toggleIngredients = () => {
+    setShowIngredients(!showIngredients);
+  };
   const { beerId } = useParams();
 
 
@@ -47,7 +53,9 @@ console.log(hopsIngredients);
         <h2>{matchedBeer?.name}</h2>
         <p><span><em>{`"${matchedBeer?.tagline}"`}</em></span></p>
         <p>{matchedBeer.description}</p>
-        <h2>Ingredients</h2>
+        <h2 className={`ingredients-toggle ${showIngredients ? 'open' : ''}`} onClick={toggleIngredients}>Ingredients</h2>
+          {
+            showIngredients && (
         <ul>
         <li className="beer-info__list">Malt:
           <ul>
@@ -72,6 +80,8 @@ console.log(hopsIngredients);
             </ul>
             </li>
         </ul>
+          )
+        }
 
         <h2 className="beer-info__heading">Facts</h2>
         <ul className="beer-info__facts">

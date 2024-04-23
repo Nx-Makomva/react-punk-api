@@ -1,8 +1,8 @@
 import './Nav.scss';
 import NavMenu from '../NavMenu/NavMenu';
 import { FormEvent, ChangeEvent, useState } from 'react';
-import menuIcon from '../../../public/menu-icon.png';
-import blackCross from '../../../public/black-cross.png'
+import menuIcon from '../../assets/images/menu-icon.png';
+import blackCross from '../../assets/images/black-cross.png'
 
 type NavProps = {
   searchTerm: string;

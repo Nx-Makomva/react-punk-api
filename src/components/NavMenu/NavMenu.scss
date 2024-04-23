@@ -1,24 +1,69 @@
+@use "../../assets/styles/variables.scss" as *;
+
 .nav__menu {
-  
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 20px;
+  background-color: $color-primary;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .nav-menu__heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $color-primary-dark;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: darken($color-primary-dark, 10%);
+    }
+  }
+
+  .nav__search-box {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    h2 {
+      margin-right: 20px;
+      font-size: 1.2rem;
+    }
+  }
 
   .nav__checkboxes {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
-    
-      input {
-        margin: 10px 30px;
-      }
+    margin-top: 20px;
 
-    
     .nav__checkbox-option {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
+
+      label {
+        font-size: 1rem;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        margin-right: 10px;
+      }
+
+      input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+
+      input[type="checkbox"]:checked {
+        background-color: $color-gray;
+        border-color: $color-gray;
+      }
     }
   }
 }
-
