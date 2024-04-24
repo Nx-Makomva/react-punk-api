@@ -22,6 +22,8 @@ const BeerInfo = ({beers}: BeerInfoProps) => {
     return <p>Sorry, we couldn't find that beer. Return to the <Link to={`/react-punk-api/`}>homepage</Link></p>
   }
 
+  
+
   const {malt, hops} = matchedBeer.ingredients;
   
   const maltIngredients = malt.map((ingredient) => {
