@@ -19,6 +19,8 @@ function App() {
 
   const getBeers = async () => {
     const url = 'http://localhost:3333/v2/beers';
+    // add query per page - 50 and iterate through each page
+    
     const res = await fetch(url);
     const data = await res.json();
     setBeers(data);
@@ -107,5 +109,7 @@ null
 export default App;
 
 // PLAN:
+// 1. Add pagination?
+// 1b. add testing
 // 2. When beer card "Learn More" button is clicked, it reroutes to another component with more info
 // 3. On mobile site, should just click the search icon for nav-menu to pop open 
