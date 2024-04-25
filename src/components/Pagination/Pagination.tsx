@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Pagination.scss';
 
 type PaginationProps = {
-  page: number;
+  OnpageChange: (page: number) => void;
 }
 
-const Pagination = ({page}: PaginationProps) => {
+const Pagination = ({OnpageChange}: PaginationProps) => {
   const [pageNumber, setpageNumber] = useState<number>(1);
 
   const handleIncrement = () => {
@@ -16,6 +16,10 @@ const Pagination = ({page}: PaginationProps) => {
   const handleDecrement = () => {
     pageNumber > 1 ? setpageNumber(pageNumber - 1) : setpageNumber(1);
   };
+
+useEffect(()=> {
+  OnpageChange(pageNumber);
+}, [pageNumber])
 
   return (
     <div>

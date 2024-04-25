@@ -35,15 +35,24 @@ function App() {
       beers.push(...data)
     }
     setBeers(beers);
+
+
   }
 
   console.log(beers);
 
   useEffect(() => {
     getBeers();
-   
+    
   }, [])
 
+  const handlePageChange = (page: number) => {
+    setshowNextPage(page)
+  }
+
+  useEffect(() => {
+    
+  }, [showNextPage])
 
   // Need to slice the array and only show 25 items at a time
   // Need to have a counter to manage the starting index of the sliced array
@@ -62,13 +71,13 @@ function App() {
 
 
 
-  const startIndex = 0;
+  // const startIndex = 0;
 
-  useEffect(() => {
-  const slicedbeers = beers.slice(startIndex, 26);
-  setBeers(slicedbeers)
-  console.log(beers);
-  },[])
+  // useEffect(() => {
+  // const slicedbeers = beers.slice(startIndex, 26);
+  // setBeers(slicedbeers)
+  // console.log(beers);
+  // },[])
 
   
   
@@ -132,8 +141,9 @@ function App() {
         setSelectedCategories(prevState => ({...prevState, [id]: checked}));
       }
       
-      // event handler takes in clicks from pagination and grabs the page
-
+      // event handler takes in clicks from pagination and grabs the page. 
+      // once onpagechange has the page number it needs to 
+      // use that number to move through the array index and update the state
 
 const filteringMethod = 
 searchTerm ? 'search' :
@@ -146,7 +156,7 @@ null
        <>
       <div className="app">
         <Nav searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleCheckbox={handleCheckbox}/>
-        <Pagination />
+        <Pagination OnpageChange={handlePageChange} />
 
         <Routes>
           <Route 
