@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
+import { Beer } from "../../data/beer-types";
 import './Pagination.scss';
 
 type PaginationProps = {
   OnpageChange: (page: number) => void;
+  paginatedBeers: Beer[][]
 }
 
-const Pagination = ({OnpageChange}: PaginationProps) => {
+const Pagination = ({OnpageChange, paginatedBeers}: PaginationProps) => {
   const [pageNumber, setpageNumber] = useState<number>(1);
 
   const handleIncrement = () => {
-    pageNumber < 5 ? setpageNumber(pageNumber + 1) : console.log('oops');
-    ;
+    pageNumber < paginatedBeers.length ? setpageNumber(pageNumber + 1) : setpageNumber(paginatedBeers.length);
   };
 
   const handleDecrement = () => {
@@ -22,7 +23,7 @@ useEffect(()=> {
 }, [pageNumber])
 
   return (
-    <div>
+    <div className='pagination'>
       <button onClick={handleDecrement}>-</button>
       <p>{pageNumber}</p>
       <button onClick={handleIncrement}>+</button>

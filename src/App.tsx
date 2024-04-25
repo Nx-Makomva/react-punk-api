@@ -14,7 +14,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [searchBoxFilter, setSearchBoxFilter] = useState<Beer[]>([]);
   const [checkboxFilter, setCheckboxFilter] = useState<Beer[]>([]);  
-  const [showNextPage, setshowNextPage] = useState<number>(1);
+  const [showNextPage, setshowNextPage] = useState<number>(0);
   const [selectedCategories, setSelectedCategories] = useState<{[key: string]: boolean}>({
     abv: false,
     classicRange: false,
@@ -35,52 +35,15 @@ function App() {
       beers.push(...data)
     }
     setBeers(beers);
-
-
   }
-
-  console.log(beers);
 
   useEffect(() => {
     getBeers();
-    
   }, [])
 
   const handlePageChange = (page: number) => {
     setshowNextPage(page)
   }
-
-  useEffect(() => {
-    
-  }, [showNextPage])
-
-  // Need to slice the array and only show 25 items at a time
-  // Need to have a counter to manage the starting index of the sliced array
-  // The counter is managed by buttons clicking up or down 
-  // state needs to update to re-render the page and show the beers
-
-  // function that handles increment and decrement of 'page=n' in url. when this is clicked, url page=n +1 or -1
-  // i need a state to manage the page we're on. 
-  // what will update the state? a counter that goes up by 1 each time a button is pressed
-  // show next page should determine when slice moves on in the array
-  // use splice to hold an array of arrays and move through the indexes
-
-  // 1. button is pressed - counter increased by 1 or decreased by 1 - component to manage pages
-  // 2. counter updates the state of shownextpage and that value will increase by 1
-  // 3. value of shownextpage will dictate the slice moving to the next section of the beers array.
-
-
-
-  // const startIndex = 0;
-
-  // useEffect(() => {
-  // const slicedbeers = beers.slice(startIndex, 26);
-  // setBeers(slicedbeers)
-  // console.log(beers);
-  // },[])
-
-  
-  
 
 
   useEffect(() => {
@@ -140,10 +103,6 @@ function App() {
       const {id, checked} = event.target;
         setSelectedCategories(prevState => ({...prevState, [id]: checked}));
       }
-      
-      // event handler takes in clicks from pagination and grabs the page. 
-      // once onpagechange has the page number it needs to 
-      // use that number to move through the array index and update the state
 
 const filteringMethod = 
 searchTerm ? 'search' :
@@ -151,24 +110,36 @@ Object.values(selectedCategories).some(value => value) ? 'checkbox' :
 null
 
 
+const paginatedBeers: Beer[][] = [[]];
+let innerArrayIndex = 0;
+
+beers.forEach((beer) => {
+  if (paginatedBeers[innerArrayIndex].length >= 25) {
+    paginatedBeers.push([]);
+    innerArrayIndex++;
+  }
+
+  paginatedBeers[innerArrayIndex].push(beer);
+});
+
+
   return (
     <BrowserRouter>
        <>
       <div className="app">
         <Nav searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleCheckbox={handleCheckbox}/>
-        <Pagination OnpageChange={handlePageChange} />
-
+       
         <Routes>
           <Route 
             path="/react-punk-api/"
-            element={<BeerCardContainer beers={searchBoxFilter.length > 0 ? searchBoxFilter : beers} checkboxFilter={checkboxFilter} filteringMethod={filteringMethod}/>}
+            element={<BeerCardContainer pageNumber={showNextPage} beers={searchBoxFilter.length > 0 ? searchBoxFilter : beers} checkboxFilter={checkboxFilter} filteringMethod={filteringMethod}/>} 
           />
-
           <Route 
             path="/:beerId"
             element={<BeerInfo beers={beers}/>}
           />
         </Routes>
+        <Pagination OnpageChange={handlePageChange} paginatedBeers={paginatedBeers}/>
       </div>
     </>
     </BrowserRouter>
@@ -182,3 +153,7 @@ export default App;
 // 1b. add testing
 // 2. adjust styling so that button elements are all in same position for each card
 // 3. add some kind of feature
+
+
+  
+  
