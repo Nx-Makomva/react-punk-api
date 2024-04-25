@@ -34,21 +34,12 @@ const BeerInfo = ({beers}: BeerInfoProps) => {
     return `${ingredient.name}: ${ingredient.amount.value} ${ingredient.amount.unit}`;
   })
 
-
-
-console.log(maltIngredients);
-
-console.log(hopsIngredients);
-
-  // const lastSentenceIndex = matchedBeer.description.indexOf('.', 350);
-  // const shortSentence = matchedBeer.description.substring(0, lastSentenceIndex);
-
   return (
     <article className="beer-info">
       <div className="beer-info__banner">
         <img
           src={matchedBeer?.image_url}
-          alt={`an image of the named: ${matchedBeer?.name}`}
+          alt={`an image of: ${matchedBeer?.name}`}
         />
       </div>
       <div className="beer-info__content">
