@@ -19,6 +19,13 @@ const BeerCardContainer = ({
       ? beers
       : checkboxFilter;
 
+        console.log(beers);
+        
+      console.log(filteringMethod);
+      
+      console.log(checkboxFilter);
+      
+
   return (
     <div className="beer-card__container">
       {filteredBeers.map((beer) => (
