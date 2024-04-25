@@ -43,7 +43,7 @@ const BeerInfo = ({beers}: BeerInfoProps) => {
         />
       </div>
       <div className="beer-info__content">
-        <h2>{matchedBeer?.name}</h2>
+        <h2 className="beer-info__title">{matchedBeer?.name}</h2>
         <p><span><em>{`"${matchedBeer?.tagline}"`}</em></span></p>
         <p>{matchedBeer.description}</p>
         <h2 className={`ingredients-toggle ${showIngredients ? 'open' : ''}`} onClick={toggleIngredients}>Ingredients</h2>
@@ -76,7 +76,7 @@ const BeerInfo = ({beers}: BeerInfoProps) => {
           )
         }
 
-        <h2 className="beer-info__heading">Facts</h2>
+        <h2 className="beer-info__heading">Did you know...</h2>
         <ul className="beer-info__facts">
           <li>I was first brewed : {matchedBeer.first_brewed} </li>
           <li>My Alcohol by Volume is: {`${matchedBeer.abv}%`}</li>

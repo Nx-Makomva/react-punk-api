@@ -24,9 +24,9 @@ useEffect(()=> {
 
   return (
     <div className='pagination'>
-      <button onClick={handleDecrement}>-</button>
-      <p>{pageNumber}</p>
-      <button onClick={handleIncrement}>+</button>
+      <div className='pagination--arrow' onClick={handleDecrement}>{'<'}</div>
+      <p className='pagination--page'>{pageNumber}</p>
+      <div className='pagination--arrow' onClick={handleIncrement}>{'>'}</div>
     </div>
   )
 }

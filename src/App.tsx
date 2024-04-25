@@ -7,6 +7,7 @@ import { Beer } from "./data/beer-types";
 import BeerInfo from "./components/BeerInfo/BeerInfo";
 import Nav from "./components/Nav/Nav";
 import Pagination from "./components/Pagination/Pagination";
+import Home from "./Home";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
     }
     setBeers(beers);
   }
+  
 
   useEffect(() => {
     getBeers();
@@ -59,7 +61,7 @@ function App() {
         return ingredient.name.includes(searchTerm);
       })
 
-      const yeastIncluded = yeast && beer.ingredients.yeast.includes(searchTerm);
+      const yeastIncluded = yeast && beer.ingredients.yeast?.includes(searchTerm);
 
        return searchByName || maltIngredients || hopsIngredients || yeastIncluded
     })
@@ -82,7 +84,7 @@ function App() {
       if (selectedCategories.classicRange && year < 2010) {
         return true;
       }
-      if (selectedCategories.ph && beer.ph < 4){
+      if (selectedCategories.ph && beer.ph !== null && beer.ph < 4){
         return true;
       }
         return false;
@@ -128,18 +130,35 @@ beers.forEach((beer) => {
        <>
       <div className="app">
         <Nav searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleCheckbox={handleCheckbox}/>
-       
+                     
         <Routes>
           <Route 
-            path="/react-punk-api/"
-            element={<BeerCardContainer pageNumber={showNextPage} beers={searchBoxFilter.length > 0 ? searchBoxFilter : beers} checkboxFilter={checkboxFilter} filteringMethod={filteringMethod}/>} 
-          />
+              path="/react-punk-api/"
+              element={<Home/>}
+            />
+          <Route 
+            path="/react-punk-api/beers"
+            element={
+              <>
+              <BeerCardContainer 
+                pageNumber={showNextPage} 
+                beers={searchBoxFilter.length > 0 ? searchBoxFilter : beers} 
+                checkboxFilter={checkboxFilter} 
+                filteringMethod={filteringMethod}
+              />
+              <Pagination 
+                OnpageChange={handlePageChange} 
+                paginatedBeers={paginatedBeers}
+              />
+            </>
+          }
+        />
           <Route 
             path="/:beerId"
             element={<BeerInfo beers={beers}/>}
           />
+
         </Routes>
-        <Pagination OnpageChange={handlePageChange} paginatedBeers={paginatedBeers}/>
       </div>
     </>
     </BrowserRouter>
@@ -147,13 +166,5 @@ beers.forEach((beer) => {
 }
 
 export default App;
-
-// PLAN:
-// 1. Add pagination?
-// 1b. add testing
-// 2. adjust styling so that button elements are all in same position for each card
-// 3. add some kind of feature
-
-
   
   

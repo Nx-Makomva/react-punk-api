@@ -1,0 +1,56 @@
+@use '/src/assets/styles/variables.scss' as *;
+
+.home {
+  background-color: $color-primary-dark;
+  text-align: center;
+
+  &__header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: $color-gray;
+    font-family: $font-title;
+    word-spacing: 2px;
+    letter-spacing: 3px;
+
+    &::before {
+      content: "Great Beers ";
+      color: $color-gray;
+    }
+
+
+    &::after {
+      content: " Live Here.";
+      color: $color-secondary; 
+    }
+  }
+  
+  &__beer {
+    margin-bottom: 20px;
+
+    img {
+      width: 80%;
+      height: auto;
+    }
+  }
+  
+  &__button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: $color-primary-dark;
+    color: white;
+    border: 1px solid $color-borders;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.9s;
+    padding: 10px 100px;
+    font-family: $font-title;
+    letter-spacing: 1px;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-primary-dark;
+    }
+  }
+}
+

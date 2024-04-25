@@ -11,7 +11,7 @@ type SearchBoxProps = {
 const SearchBox = ({label, searchTerm, onInput}: SearchBoxProps) => {
   return (
     <div className='search-box'>
-      <input type="text"
+      <input className='search-box__text' type="text"
       id={label}
       name={label} 
       value={searchTerm} 
