@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Beer } from "./data/beer-types";
 import BeerInfo from "./components/BeerInfo/BeerInfo";
 import Nav from "./components/Nav/Nav";
+import Pagination from "./components/Pagination/Pagination";
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
   // i need a state to manage the page we're on. 
   // what will update the state? a counter that goes up by 1 each time a button is pressed
   // show next page should determine when slice moves on in the array
+  // use splice to hold an array of arrays and move through the indexes
 
   // 1. button is pressed - counter increased by 1 or decreased by 1 - component to manage pages
   // 2. counter updates the state of shownextpage and that value will increase by 1
@@ -129,7 +131,8 @@ function App() {
       const {id, checked} = event.target;
         setSelectedCategories(prevState => ({...prevState, [id]: checked}));
       }
-
+      
+      // event handler takes in clicks from pagination and grabs the page
 
 
 const filteringMethod = 
@@ -143,7 +146,7 @@ null
        <>
       <div className="app">
         <Nav searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleCheckbox={handleCheckbox}/>
-        
+        <Pagination />
 
         <Routes>
           <Route 
