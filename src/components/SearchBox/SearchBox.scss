@@ -1,4 +1,18 @@
 .search-box {
-  border: 3px blue slid;
- 
+  &__text {
+    font-size: 1rem;
+    padding: 8px 16px;
+    width: 250%;
+  }
 }
+
+@media screen and (max-width: 500px) {
+  .search-box {
+      &__text {
+    font-size: 0.8rem;
+    padding: 4px 4px;
+    width: 250%;
+  }
+  }
+}
+

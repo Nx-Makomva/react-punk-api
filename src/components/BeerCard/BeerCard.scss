@@ -77,3 +77,26 @@
     }
   }
 }
+
+
+@media screen and (max-width: 500px) {
+  .beer__card {
+    width: 220px;
+    height: 320px;
+    text-align: center;
+  
+    .beer__image-background {
+      height: 40%;
+  
+      .beer__image {
+        display: flex;
+        width: 90%;
+        justify-content: center;
+      }
+    }
+  
+    .beer__header {
+      font-size: 1.4rem; 
+    }
+  }
+}

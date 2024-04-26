@@ -43,16 +43,7 @@
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-
-    .search-box__text {
-      font-size: 1rem;
-      padding: 8px 16px;
-    }
-
-    h2 {
-      margin-right: 20px;
-      font-size: 1.2rem;
-    }
+    width: 50px;
   }
 
   .nav__checkboxes {
@@ -90,6 +81,39 @@
       input[type="checkbox"]:checked {
         background-color: $color-gray;
         border-color: $color-gray;
+      }
+    }
+  } 
+}
+
+/////// MEDIA QUERIES ///////////
+
+@media screen and (max-width: 500px) {
+  .nav__menu {
+    width: 150px;
+    height: 200px;
+  
+    .nav-menu__icon{
+      width: 10%;
+      height: 20px;
+      margin-right: 10px;
+      margin-bottom: 3px
+    }
+  
+    .nav-menu__heading {
+      margin-top: 16px;
+      font-size: 1.2rem;
+    }
+  
+    .nav__search-box {
+      margin-bottom: 10px;
+    }
+  
+    .nav__checkboxes {
+      .nav__checkbox-option {
+        label {
+          font-size: 0.8rem;
+        }
       }
     }
   }

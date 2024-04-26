@@ -35,10 +35,15 @@ const BeerCardContainer = ({
   });
   
   console.log(paginatedBeers);
-  
+
 
   return (
-    <div className="beer-card__container">
+    <>
+    <div>
+    <div className="beer-card__title">
+      <h2>Your Matches</h2>
+      </div>
+      <div className="beer-card__container">
       {paginatedBeers[indexNumber] &&
         paginatedBeers[indexNumber].map((beer) => (
           <div key={beer.id}>
@@ -46,14 +51,14 @@ const BeerCardContainer = ({
               <BeerCard
                 key={beer.id}
                 image={beer.image_url ? beer.image_url : `Sorry, couldn't find that beer image`}
-
                 name={beer.name}
-                firstBrewed={beer.first_brewed}
-              />
+                firstBrewed={beer.first_brewed} />
             </Link>
           </div>
         ))}
     </div>
+    </div>
+    </>
   );
 };
 

@@ -22,3 +22,9 @@
     font-family: $font-paragraph;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .pagination {
+    margin-left: 25%;
+  }
+}

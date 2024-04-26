@@ -4,7 +4,7 @@ export type Beer = {
   tagline: string;
   first_brewed: string;
   description: string;
-  image_url: string | undefined;
+  image_url: string | null;
   abv: number;
   ibu: number | null;
   target_fg: number | null;
