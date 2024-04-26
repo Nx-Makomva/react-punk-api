@@ -26,7 +26,7 @@ const BeerCard = ({
       onMouseLeave={onMouseLeave}
     >
       {isHovered ? (
-        <div className="beer-hover__content">
+        <div>
           <div className="beer__image-background-hover">
             <div className="beer__image-hover">
               <img src={image} alt="" />
