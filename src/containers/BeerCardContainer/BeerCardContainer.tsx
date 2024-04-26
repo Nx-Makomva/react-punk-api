@@ -2,7 +2,6 @@ import "./BeerCardContainer.scss";
 import BeerCard from "../../components/BeerCard/BeerCard";
 import { Beer } from "../../data/beer-types";
 import { Link } from "react-router-dom";
-import blackCross from '../../assets/images/black-cross.png'
 
 type BeerContainerProps = {
   beers: Beer[];
@@ -43,7 +42,7 @@ const BeerCardContainer = ({
       {paginatedBeers[indexNumber] &&
         paginatedBeers[indexNumber].map((beer) => (
           <div key={beer.id}>
-            <Link to={`/${beer.id}`}>
+            <Link className="beer-card__link" to={`/${beer.id}`}>
               <BeerCard
                 key={beer.id}
                 image={beer.image_url ? beer.image_url : `Sorry, couldn't find that beer image`}

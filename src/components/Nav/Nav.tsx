@@ -2,7 +2,7 @@ import './Nav.scss';
 import NavMenu from '../NavMenu/NavMenu';
 import { FormEvent, ChangeEvent, useState } from 'react';
 import menuIcon from '../../assets/images/menu-icon.png';
-import blackCross from '../../assets/images/black-cross.png'
+import whiteCross from '../../assets/images/white-cross.png'
 
 type NavProps = {
   searchTerm: string;
@@ -22,7 +22,7 @@ const Nav = ({searchTerm, handleSearchInput, handleCheckbox}: NavProps) => {
       {
         showNavMenu ? (
           <>
-           <img className='black-cross' src={blackCross} alt="black cross to close menu" onClick={toggleNavMenu}/>
+           <img className='black-cross' src={whiteCross} alt="black cross to close menu" onClick={toggleNavMenu}/>
           <NavMenu searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleCheckbox={handleCheckbox} />
           </>
         ) : (

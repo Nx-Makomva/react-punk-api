@@ -6,12 +6,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease;
-  width: 300px;
-  height: 350px;
+  width: 340px;
+  height: 400px;
   margin: 10px;
   padding: 10px;
   background-color: #fff;
-  font-family: Georgia, 'Times New Roman', Times, serif;
 
   &:hover {
     transform: translateY(-5px);
@@ -23,9 +22,9 @@
     align-items: center;
     justify-content: center;
     height: 50%;
-    background-color: $color-primary;
-  
+    background-color: $color-secondary;
     padding: 10px;
+    border-radius: 8px;
 
     .beer__image {
       width: 80%;
@@ -40,32 +39,41 @@
   }
 
   .beer__header {
-    font-size: 1.3rem; 
+    font-size: 1.5rem; 
     font-weight: bold;
-    margin-bottom: 10px;
-    color: $color-dark; 
+    margin: 16px 10px 8px;
+    color: $color-dark;
+    font-family: $font-title;
+    letter-spacing: 1px; 
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .beer__year {
     font-size: 1rem;
     color: $color-gray;
-    margin-bottom: 10px;
+    margin: 0 10px 24px;
+    font-family: $font-paragraph;
   }
 
   .beer__button {
-    background-color: $color-primary-dark;
-    color: #fff;
-    border: none;
+    background-color: white;
+    color: $color-dark;
+    border: 1px solid $color-primary-dark;
     border-radius: 4px;
     padding: 10px 20px; 
-    margin: 10px 0;
+    margin: 0 10px 30px;
     font-size: 0.8rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-weight: bold;
+    font-family: $font-paragraph;
 
     &:hover {
-      background-color: darken($color-primary-dark, 10%);
+      background-color: lighten($color-primary-dark, 15%);
+      color: $color-primary;
     }
   }
 }

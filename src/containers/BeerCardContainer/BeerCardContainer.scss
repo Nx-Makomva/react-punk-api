@@ -2,5 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
+
+  .beer-card__link {
+    text-decoration: none;
+  }
 }
 

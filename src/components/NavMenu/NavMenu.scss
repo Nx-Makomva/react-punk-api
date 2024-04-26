@@ -5,25 +5,49 @@
   flex-direction: column;
   padding: 20px;
   background-color: $color-primary;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
+  .nav-menu__link{
+    text-decoration: none;
+  }
+
+  .nav-menu__home {
+    display: flex;
+    align-items: end;
+  }
+
+  .nav-menu__icon{
+    width: 15%;
+    height: 30px;
+    margin-right: 10px;
+    margin-bottom: 3px
+  }
+
   .nav-menu__heading {
-    font-size: 1.2rem;
+    margin-top: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
-    color: $color-primary-dark;
+    color: darken($color-secondary, 20%);
     text-decoration: none;
     transition: color 0.3s ease;
+    font-family: $font-title;
+    letter-spacing: 2px;
 
     &:hover {
       color: darken($color-primary-dark, 10%);
-    }
+    } 
   }
 
   .nav__search-box {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+
+    .search-box__text {
+      font-size: 1rem;
+      padding: 8px 16px;
+    }
 
     h2 {
       margin-right: 20px;
@@ -34,17 +58,20 @@
   .nav__checkboxes {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 24px;
 
     .nav__checkbox-option {
       display: flex;
-      justify-content: space-between;
       margin-bottom: 20px;
 
       label {
         font-size: 1rem;
-        font-family: Georgia, "Times New Roman", Times, serif;
-        margin-right: 10px;
+        font-family: $font-paragraph;
+        margin-left: 8px;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       input[type="checkbox"] {

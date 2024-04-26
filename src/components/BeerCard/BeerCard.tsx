@@ -16,7 +16,7 @@ const BeerCard = ({ name, image, firstBrewed }: BeerCardProps) => {
       </div>
       <h2 className="beer__header">{name}</h2>
       <p className="beer__year">{firstBrewed}</p>
-      <button className="beer__button">Learn More About Me</button>
+      <button className="beer__button">Learn More</button>
     </div>
   );
 };

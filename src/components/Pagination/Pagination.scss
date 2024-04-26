@@ -1,3 +1,24 @@
+@use '../../assets/styles/variables.scss' as *;
+
 .pagination {
-  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  grid-column-start: 2;
+  margin-left: 50%;
+  font-size: 20px;
+  color: $color-primary;
+  
+
+  &--arrow {
+   width: 40px;
+   height: 20px;
+   text-align: center;
+   cursor: pointer;
+  }
+
+  &--page {
+    font-family: $font-paragraph;
+  }
 }
