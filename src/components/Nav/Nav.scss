@@ -1,12 +1,11 @@
 @use '../../assets/styles/variables.scss' as *;
 
 .nav {
-  background-color: $color-primary;
+  background-color: $color-primary-dark;
   display: flex;
   justify-content: space-between;
   padding: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  width: 60px;
   border-radius: 10px;
 
   .menu-icon,
@@ -26,8 +25,8 @@
   }
 
   .black-cross {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     margin: 10px;
     margin-right: 10px;
   }
