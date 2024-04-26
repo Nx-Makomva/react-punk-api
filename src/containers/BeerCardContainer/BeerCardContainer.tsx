@@ -2,6 +2,7 @@ import "./BeerCardContainer.scss";
 import BeerCard from "../../components/BeerCard/BeerCard";
 import { Beer } from "../../data/beer-types";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 type BeerContainerProps = {
   beers: Beer[];
@@ -16,6 +17,7 @@ const BeerCardContainer = ({
   filteringMethod,
   pageNumber,
 }: BeerContainerProps) => {
+  const [hoveredBeer, setHoveredBeer] = useState<any | null>()
   const indexNumber = pageNumber - 1;
   const filteredBeers =
     filteringMethod === "search" || filteringMethod === null
@@ -33,8 +35,6 @@ const BeerCardContainer = ({
 
     paginatedBeers[innerArrayIndex].push(beer);
   });
-  
-  console.log(paginatedBeers);
 
 
   return (
@@ -52,7 +52,12 @@ const BeerCardContainer = ({
                 key={beer.id}
                 image={beer.image_url ? beer.image_url : `Sorry, couldn't find that beer image`}
                 name={beer.name}
-                firstBrewed={beer.first_brewed} />
+                firstBrewed={beer.first_brewed} 
+                foodPairing={beer.food_pairing}
+                onMouseEnter={() => setHoveredBeer(beer.food_pairing)}
+                onMouseLeave={() => setHoveredBeer(null)}
+                isHovered={hoveredBeer === beer.food_pairing}
+                />
             </Link>
           </div>
         ))}
