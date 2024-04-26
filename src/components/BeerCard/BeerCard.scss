@@ -21,14 +21,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50%;
+    height: 200px;
     background-color: $color-secondary;
     padding: 10px;
     border-radius: 8px;
 
     .beer__image {
       width: 80%;
-
 
       img {
         width: 20%;
@@ -74,6 +73,66 @@
     &:hover {
       background-color: lighten($color-primary-dark, 15%);
       color: $color-primary;
+    }
+  }
+  
+
+    .beer-hover__title {
+      font-size: 1.5rem;
+      margin: 10px;
+      letter-spacing: 3px;
+      color: $color-dark;
+      font-family: $font-title;
+    }
+  
+  .beer__image-background-hover {
+    display: flex;
+    height: 50%;
+    background-color: $color-secondary;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+    .beer__image-hover {
+        img {
+          width: 40px;
+        }
+    }
+       
+    .beer__info-hovered .beer-card__food-pairing {
+      list-style: none;
+      padding: 0;
+      color: $color-primary-dark;
+      font-family: $font-paragraph;
+    }
+  
+    .beer__info-hovered .beer-card__food-pairing li {
+      color: $color-primary-dark;
+      font-family: $font-paragraph;
+    }
+  }
+
+
+
+
+@media screen and (max-width: 500px) {
+  .beer__card {
+    width: 220px;
+    height: 320px;
+    text-align: center;
+  
+    .beer__image-background {
+      height: 40%;
+  
+      .beer__image {
+        display: flex;
+        width: 90%;
+        justify-content: center;
+      }
+    }
+  
+    .beer__header {
+      font-size: 1.4rem; 
     }
   }
 }
